@@ -6,6 +6,11 @@ const gridContainer = document.querySelector('#gridContainer');
 let allCells = document.getElementsByClassName('cell');
 
 
+/*
+** Generates a grid of cells based on user input
+*/
+
+
 function generateGrid(gridWidth, gridHeight) { 
     
     for(let yValue = 0; yValue < gridHeight; yValue++) {
@@ -17,6 +22,7 @@ function generateGrid(gridWidth, gridHeight) {
             
             let cell = document.createElement('div');
             cell.classList.add('cell');
+            cell.setAttribute('cellaltered', 'false')
             
             addListeners(cell);
             
@@ -27,19 +33,82 @@ function generateGrid(gridWidth, gridHeight) {
 
 }
 
+/*
+** Adding multiple event listerns to each cell, called in generateGrid()
+** Allows single click to color as well as click and drag coloring
+*/
+
+let mouseDown =false;
+
+
 function addListeners(cell) {
+    
     cell.addEventListener('mouseenter', (e) => {
-        e.target.style.backgroundColor = 'black';
+        if (mouseDown == false && e.target.getAttribute('cellaltered') == 'false') {
+            e.target.style.backgroundColor = 'grey';
+        } 
+        if (mouseDown == false && e.target.getAttribute('cellaltered') == 'true') {
+             return;
+        }
+        if (mouseDown == true && e.target.getAttribute('cellaltered') == 'false') {
+            e.target.style.backgroundColor = 'black';
+            e.target.setAttribute('cellaltered', 'true');
+            mouseDown = true;
+        }
     });
 
     cell.addEventListener('mouseleave', (e) => {
-        e.target.style.backgroundColor = 'grey';
+        if (e.target.getAttribute('cellaltered') == 'true') {
+            return;
+        } else {
+            e.target.style.backgroundColor = 'lightgray';
+        }        
+    });
+    
+    cell.addEventListener('mousedown', (e) => {
+        e.target.style.backgroundColor = 'black';
+        e.target.setAttribute('cellaltered', 'true');
+        mouseDown = true;
+    });
+    
+    cell.addEventListener('mouseup', (e) => {
+        mouseDown = false;
     });
     
 }
 
+/*
+** Color buttons
+*/
+
+const redButton = document.querySelector('#redButton');
+let redSelected = false;
+redButton.addEventListener('click', () => {
+    redSelected = true;
+    console.log(redSelected);
+});
+
+const blueButton = document.querySelector('#blueButton');
+let blueSelected = false;
+blueButton.addEventListener('click', () => {
+    blueSelected = true;
+    console.log(blueSelected);
+});
+
+const yellowButton = document.querySelector('#yellowButton');
+let yellowSelected = false;
+yellowButton.addEventListener('click', () => {
+    yellowSelected = true;
+    console.log(yellowSelected);
+});
+
+
+/*
+** Resetting the grid color to default
+*/
 
 const resetButton = document.querySelector('#resetButton');
+
 
 resetButton.addEventListener('click', () => {
     
@@ -48,11 +117,17 @@ resetButton.addEventListener('click', () => {
     }
     
     for(let i = 0; i < allCells.length; i++) {
-        allCells[i].style.backgroundColor = "aquamarine";
+        allCells[i].style.backgroundColor = "lightgray";
+        allCells[i].setAttribute('cellaltered', 'false');
     }
+    
+    mouseDown = false;
     
 });
 
+/*
+** Get user input to set grid size, will make new grid if one exists
+*/
 
 const startButton = document.querySelector('#startButton');
 
@@ -71,6 +146,4 @@ startButton.addEventListener('click', () => {
         generateGrid(gridHeight, gridWidth);     
 });
 
-/*
 
-*/

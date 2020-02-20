@@ -50,6 +50,18 @@ table {
 
 }
 
+#yellowButton {
+    background-color: yellow;
+}
+
+#blueButton {
+    background-color: blue;
+}
+
+#redButton {
+    background-color: red;
+}
+
 #gridContainer {
     
     padding-top: 100px;
@@ -59,7 +71,7 @@ table {
 }
 
 button {
-    background-color: darkslategray;
+    background-color: slategray;
     border: 2px solid black;
     border-radius: 12px;
     color: white;
@@ -74,8 +86,8 @@ button {
 .cell {
     width: 40px;
     height: 40px;
-    background-color: aquamarine;
+    background-color: lightgray;
     margin: 1px;
     border-color: black;
-    border-style: solid; 
+    
 }
