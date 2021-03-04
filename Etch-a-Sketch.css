@@ -46,9 +46,6 @@ table {
 
 /**** End Reset ****/
 
-#controlPanel {
-
-}
 
 #yellowButton {
     background-color: yellow;
@@ -72,7 +69,7 @@ table {
 
 button {
     background-color: slategray;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 12px;
     color: white;
     padding: 15px 32px;
@@ -81,6 +78,28 @@ button {
     
     font-size: 16px;
     font-style: oblique;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: antiquewhite;
+}
+
+#controlButton {
+    float: left;
+    padding: 3px;
+}
+
+#colorButton {
+    float: right;
+    padding: 3px;
+}
+
+p {
+    padding: 2px;
 }
 
 .cell {

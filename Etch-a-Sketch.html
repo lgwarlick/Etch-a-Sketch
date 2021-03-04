@@ -2,22 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
+   
     <link rel="stylesheet" href="Etch-a-Sketch.css">
+    
 </head>
 
 <body>
     
+            
     
-    <div id="controlPanel">
-        <button id='startButton'>Start</button>
-        <button id='resetButton'>Reset</button>
-        
-        <div id='colorSelction'>
-            <button id='redButton'></button>
-            <button id='blueButton'></button>
-            <button id='yellowButton'></button>
+        <div id="controlPanel colorSelection">
+            <ul>
+                <li id="controlButton"><button id='startButton'>Start</button></li>
+                <li id="controlButton"><button id='resetButton'>Reset</button></li>
+                <li id="colorButton"><button id='redButton'></button></li>
+                <li id="colorButton"><button id='blueButton'></button></li>
+                <li id="colorButton"><button id='yellowButton'></button></li>
+            </ul> 
         </div>
-    </div>
+    
+        
+        <div>
+            <p>Press start to begin</p>
+            <p>Enter your desired height and width to generate your drawing panel</p>
+            <p>Click to color a square. Click and dragging also works</p>
+            <p>By deafult the color is black, but use the buttons in the upper right to change that</p>
+            <p>Press "Reset" to erase and retain the current drawing panel</p>
+            <p>Press "Start" to create a new panel</p>
+        </div>
+        
+
+        
+    
     
     <div id="gridContainer">
     

@@ -40,6 +40,8 @@ function generateGrid(gridWidth, gridHeight) {
 
 let mouseDown =false;
 
+let fillColor = 'black';
+
 
 function addListeners(cell) {
     
@@ -51,7 +53,7 @@ function addListeners(cell) {
              return;
         }
         if (mouseDown == true && e.target.getAttribute('cellaltered') == 'false') {
-            e.target.style.backgroundColor = 'black';
+            e.target.style.backgroundColor = fillColor;
             e.target.setAttribute('cellaltered', 'true');
             mouseDown = true;
         }
@@ -66,7 +68,7 @@ function addListeners(cell) {
     });
     
     cell.addEventListener('mousedown', (e) => {
-        e.target.style.backgroundColor = 'black';
+        e.target.style.backgroundColor = fillColor;
         e.target.setAttribute('cellaltered', 'true');
         mouseDown = true;
     });
@@ -82,24 +84,21 @@ function addListeners(cell) {
 */
 
 const redButton = document.querySelector('#redButton');
-let redSelected = false;
+
 redButton.addEventListener('click', () => {
-    redSelected = true;
-    console.log(redSelected);
+    fillColor = 'red';
 });
 
 const blueButton = document.querySelector('#blueButton');
-let blueSelected = false;
+
 blueButton.addEventListener('click', () => {
-    blueSelected = true;
-    console.log(blueSelected);
+   fillColor = 'blue';
 });
 
 const yellowButton = document.querySelector('#yellowButton');
-let yellowSelected = false;
+
 yellowButton.addEventListener('click', () => {
-    yellowSelected = true;
-    console.log(yellowSelected);
+    fillColor = 'yellow';
 });
 
 
